@@ -16,4 +16,4 @@ def sort_by_date(data, descending=True):
     задающий порядок сортировки.
     Возвращает новый список, отсортированный по дате
     """
-    return sorted(data, key=lambda x: x['date'], reverse=descending)
+    return sorted(data, key=lambda x: datetime.fromisoformat(x['date']), reverse=descending)
