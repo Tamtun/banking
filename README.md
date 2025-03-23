@@ -16,6 +16,18 @@
 ## Установка и использование
 
 1. Клонируйте репозиторий:
-   ```bash
+
    git clone <URL-вашего-репозитория>
    cd <название-проекта>
+   
+## Установка зависимостей  
+
+1. Установите Python 3.10+  
+2. Установите виртуальное окружение и активируйте его:
+
+   python -m venv venv
+   source venv/bin/activate  # для macOS и Linux
+   venv\Scripts\activate  # для Windows
+3. Установите зависимости:
+
+   pip install -r requirements.txt 
