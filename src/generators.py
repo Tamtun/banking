@@ -12,7 +12,7 @@ def filter_by_currency(transactions: List[Dict], currency: str) -> Iterator[Dict
 
 def transaction_descriptions(transactions: List[Dict]) -> Iterator[str]:
     """
-    Генератор, возвращающий описания транзакций.
+    Генератор, возвращающий описания произведенных транзакций.
     """
     for tx in transactions:
         yield tx.get("description", "")
@@ -20,7 +20,7 @@ def transaction_descriptions(transactions: List[Dict]) -> Iterator[str]:
 
 def card_number_generator(start: int, end: int) -> Iterator[str]:
     """
-    Генератор номеров карт в формате XXXX XXXX XXXX XXXX.
+    Генератор номеров карт в формат XXXX XXXX XXXX XXXX.
     """
     for number in range(start, end + 1):
         card_number = f"{number:016d}"

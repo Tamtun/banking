@@ -14,6 +14,6 @@ def sort_by_date(data: List[Dict], descending: bool = True) -> List[Dict]:
     """
     Принимает список словарей и необязательный параметр,
     задающий порядок сортировки.
-    Возвращает новый список, отсортированный по дате.
+    Возвращает новый список, сортировка по дате.
     """
     return sorted(data, key=lambda x: datetime.fromisoformat(x["date"]), reverse=descending)

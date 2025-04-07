@@ -1,6 +1,7 @@
 import pytest
 from typing import List, Dict
 
+""" Фикстуры """
 
 @pytest.fixture
 def sample_card_numbers() -> list[tuple[str, str]]:

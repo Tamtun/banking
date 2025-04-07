@@ -17,7 +17,7 @@
 - **`filter_by_currency(transactions: list[dict], currency: str) -> Iterator[dict]`** — возвращает только транзакции с заданной валютой.
 
 - **`transaction_descriptions(transactions: list[dict]) -> Iterator[str]`** — возвращает описания транзакций.
-
+ 
 - **`card_number_generator(start: int, end: int) -> Iterator[str]`** — генерирует номера карт в формате XXXX XXXX XXXX XXXX для заданного диапазона.
 
 ## Установка и использование

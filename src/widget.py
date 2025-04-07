@@ -15,7 +15,7 @@ def mask_account_card(data: str) -> str:
 
 
 def get_date(date_str: str) -> str:
-    """Форматирует дату в 'ДД.ММ.ГГГГ'."""
+    """Формат даты в 'ДД.ММ.ГГГГ'."""
     try:
         return datetime.fromisoformat(date_str).strftime("%d.%m.%Y")
     except ValueError:
