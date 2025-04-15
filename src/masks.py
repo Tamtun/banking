@@ -1,5 +1,5 @@
 def get_mask_card_number(card_number: str) -> str:
-    """Маскирует номер карты в формате XXXX XX** **** XXXX."""
+    """Маскирует номер карты в формат XXXX XX** **** XXXX."""
     if len(card_number) != 16 or not card_number.isdigit():
         raise ValueError("Некорректный номер карты")
 
@@ -7,7 +7,7 @@ def get_mask_card_number(card_number: str) -> str:
 
 
 def get_mask_account(account_number: str) -> str:
-    """Маскирует номер счета в формате **XXXX."""
+    """Маскирует номер счета в формат **XXXX."""
     if len(account_number) < 4 or not account_number.isdigit():
         raise ValueError("Некорректный номер счета")
 

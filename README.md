@@ -13,6 +13,13 @@
 - **`filter_by_state(data: list, state='EXECUTED') -> list`** — фильтрует список словарей по значению ключа `state`, возвращая только соответствующие записи.  
 - **`sort_by_date(data: list, descending=True) -> list`** — сортирует список словарей по дате (`date`), по умолчанию в порядке убывания.  
 
+### Генераторы данных
+- **`filter_by_currency(transactions: list[dict], currency: str) -> Iterator[dict]`** — возвращает только транзакции с заданной валютой.
+
+- **`transaction_descriptions(transactions: list[dict]) -> Iterator[str]`** — возвращает описания транзакций.
+ 
+- **`card_number_generator(start: int, end: int) -> Iterator[str]`** — генерирует номера карт в формате XXXX XXXX XXXX XXXX для заданного диапазона.
+
 ## Установка и использование
 
 1. Клонируйте репозиторий:
