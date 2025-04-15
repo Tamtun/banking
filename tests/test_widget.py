@@ -3,6 +3,7 @@ from src.widget import mask_account_card, get_date
 
 """ Тесты """
 
+
 @pytest.mark.parametrize(
     "input_data, expected",
     [

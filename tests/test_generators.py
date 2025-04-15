@@ -4,6 +4,7 @@ from src.generators import filter_by_currency, transaction_descriptions, card_nu
 
 """ Тесты """
 
+
 def test_filter_by_currency_usd(sample_transactions: List[dict]) -> None:
     result = list(filter_by_currency(sample_transactions, "USD"))
     assert len(result) == 3
