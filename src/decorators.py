@@ -14,7 +14,7 @@ def log(filename: Optional[str] = None) -> Callable[[Callable[..., Any]], Callab
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
     logger.handlers.clear()
-    formatter = logging.Formatter('%(message)s')
+    formatter = logging.Formatter("%(message)s")
 
     if filename:
         file_handler = logging.FileHandler(filename)
