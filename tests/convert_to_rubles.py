@@ -25,11 +25,7 @@ def convert_to_rubles(transaction: Dict) -> float:
 
     # Исправляем URL на корректный для API
     url = "https://api.apilayer.com/exchangerates_data/convert"
-    params = {
-        "from": currency_code,
-        "to": "RUB",
-        "amount": amount
-    }
+    params = {"from": currency_code, "to": "RUB", "amount": amount}
     headers = {"apikey": api_key}
 
     # Выполняем запрос к API
