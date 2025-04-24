@@ -3,16 +3,15 @@ import os
 
 # Настройка логгера для модуля masks
 log_file = os.path.join("logs", "masks.log")
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(name)s] %(levelname)s: %(message)s",
-    handlers=[
-        logging.FileHandler(log_file, mode="w"),
-        logging.StreamHandler(),  # Опционально: для вывода логов в консоль
-    ],
-)
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)  # Устанавливаем уровень DEBUG
 
+file_handler = logging.FileHandler(log_file, mode="w")
+file_handler.setLevel(logging.DEBUG)  # Уровень для файла
+formatter = logging.Formatter("%(asctime)s [%(name)s] %(levelname)s: %(message)s")
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
 
 def get_mask_card_number(card_number: str) -> str:
     """Маскирует номер карты в формат XXXX XX** **** XXXX."""
@@ -27,7 +26,6 @@ def get_mask_card_number(card_number: str) -> str:
     except Exception as e:
         logger.exception("Ошибка при маскировке номера карты: %s", str(e))
         raise
-
 
 def get_mask_account(account_number: str) -> str:
     """Маскирует номер счета в формат **XXXX."""

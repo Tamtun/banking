@@ -5,16 +5,15 @@ from typing import List, Dict
 
 # Настройка логгера для модуля utils
 log_file = os.path.join("logs", "utils.log")
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(name)s] %(levelname)s: %(message)s",
-    handlers=[
-        logging.FileHandler(log_file, mode="w"),
-        logging.StreamHandler(),  # Для вывода логов в консоль (по желанию)
-    ],
-)
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)  # Устанавливаем уровень DEBUG
 
+file_handler = logging.FileHandler(log_file, mode="w")
+file_handler.setLevel(logging.DEBUG)  # Уровень для файла
+formatter = logging.Formatter("%(asctime)s [%(name)s] %(levelname)s: %(message)s")
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
 
 def load_transactions(file_path: str) -> List[Dict]:
     """
