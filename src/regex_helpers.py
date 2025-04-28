@@ -1,6 +1,6 @@
 import re
 from typing import List, Dict
-
+from collections import Counter
 
 def filter_transactions_by_description(transactions: List[Dict], search_string: str) -> List[Dict]:
     """
@@ -17,20 +17,20 @@ def filter_transactions_by_description(transactions: List[Dict], search_string: 
     ]
 
 
-def group_transactions_by_category(transactions: List[Dict], categories: List[str]) -> Dict[str, int]:
+def group_transactions_by_category(transactions: List[Dict], categories: List[str]) -> Counter[str]:
     """
-    Группирует транзакции по категориям.
+    Подсчитывает количество транзакций для каждой категории.
+    Если категория встречается в описании транзакции (без учёта регистра), увеличивает счётчик.
 
-    :param transactions: Список транзакций.
-    :param categories: Список категорий.
-    :return: Словарь с количеством транзакций в каждой категории.
+    :param transactions: Список транзакций (словарей).
+    :param categories: Список категорий для поиска.
+    :return: Counter с количеством транзакций для каждой категории.
     """
-    result = {category: 0 for category in categories}
-
+    counter = Counter()
     for transaction in transactions:
-        description = transaction.get("description", "").lower()  # Приведение к нижнему регистру
+        # Приводим описание транзакции к нижнему регистру для корректного поиска
+        description = transaction.get("description", "").lower()
         for category in categories:
-            # Условие для поиска категории как подстроки в описании
             if category.lower() in description:
-                result[category] += 1
-    return result
+                counter[category] += 1
+    return counter
