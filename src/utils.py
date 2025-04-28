@@ -15,6 +15,7 @@ file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
 
+
 def load_transactions(file_path: str) -> List[Dict]:
     """
     Загружает список финансовых транзакций из JSON-файла.
