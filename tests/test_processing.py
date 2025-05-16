@@ -2,6 +2,8 @@ from typing import List, Dict, Union
 import pytest
 from src.processing import filter_by_state, sort_by_date
 
+""" Тесты """
+
 
 @pytest.mark.parametrize(
     "state, expected",
